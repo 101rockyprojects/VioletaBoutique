@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|McLaren|Syncopate:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
-  <link rel="stylesheet" href="light.css" type="text/css" id="css">
+  <link rel="stylesheet" href="home.css" type="text/css" id="css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
@@ -36,7 +36,7 @@
               <label for="psw"><b>Validar contraseña</b></label>
               <input class="signin" type="password" placeholder="Enter Password" name="psw" required>
               <button type="submit" class="btn">Crear cuenta</button>
-              <a class="question" src="#none">¿Ya tienes cuenta?</a>
+              <a class="question" onclick ="flipFront()" src="#none">¿Ya tienes cuenta?</a>
             </div>
           </form>
         </div>
@@ -52,7 +52,7 @@
               <input class="login" type="password" placeholder="Enter Password" name="psw" required>
               <br><br>
               <button type="submit" class="btn">Login</button>
-              <a class="question" src="#none">¿Aún no tienes cuenta?</a>
+              <a class="question" onclick="flipBack()" src="#none">¿Aún no tienes cuenta?</a>
             </div>
           </form>
         </div>
@@ -63,15 +63,8 @@
     <a href="#closeside" class="closebtn" onclick="closeNav()">×</a>
     <div class="buscar">
       <input type="text" class="sideinput" id="mySearch" onkeyup="searching()" placeholder="¿Qué buscas?" name="search">
-      <ul id="myCategoryList">
-        <!--span class="notfound">No se encontraron resultados</span>-->
-        <li><a href="#todos" onclick="filterSelection('all')">Todos</a></li>
-        <li><a href="#masvendidos">Más vendidos</a></li>
-        <li><a href="#infantil" onclick="filterSelection('infantil')">Infantiles</a></li>
-        <li><a href="#mujer" onclick="filterSelection('mujer')">Para Mujer</a></li>
-        <li><a href="#hombre" onclick="filterSelection('hombre')">Para Hombre</a></li>
-        <li><a href="#eventos">Para Eventos</a></li>
-        <li><a href="#vestidos">Para Vestidos</a></li>
+      <ul id="admin">
+        
       </ul>
       <br><br>
       <i class="fa fa-plus addbtn" onclick="document.getElementById('id01').style.display='block'"></i>
@@ -104,7 +97,6 @@
                   <option value="vestidos">Para Vestidos</option>
                 </select>
               <label>Categoría Secundaria del artículo:</label>
-
                 <select class="addinput" name="select" >
                   <option value="ninguno">Categoría Secundaria...</option>
                   <option value="mujer">Mujer</option>
@@ -153,9 +145,19 @@
         <span class="dot" onclick="currentSlide(3)"></span> 
       </div>
     <center>ACCESORIOS PARA TODOS</center>
-
+    <!--span class="notfound">No se encontraron resultados</span>-->
+    <ul class = "myCategoryList">
+      <li><a href="#todos" onclick="filterSelection('all')">Todos</a></li>
+      <li><a href="#masvendidos">Más vendidos</a></li>
+      <li><a href="#infantil" onclick="selected(this),filterSelection('infantil')">Infantiles</a></li>
+      <li><a href="#mujer" onclick="filterSelection('mujer')">Mujer</a></li>
+      <li><a href="#hombre" onclick="filterSelection('hombre')">Hombre</a></li>
+      <li><a href="#eventos">Para Eventos</a></li>
+      <li><a href="#vestidos">Para Vestidos</a></li>
+      <li><a href="#vestidos">Mascotas</a></li>
+    </ul>
     <!-- Portfolio Gallery Grid -->
-    <div class="row">
+    <div id="container" class="row container flex flex-wrap gap-4"">
       <div class="column hombre">
         <div class="accesorio" onclick="document.getElementById('id02').style.display='block'"></i>
           <img src="moñoh.jpg" alt="Hombre">
@@ -259,7 +261,7 @@
   var input, filter, ul, li, a, i;
   input = document.getElementById("mySearch");
   filter = input.value.toUpperCase();
-  ul = document.getElementById("myCategoryList");
+  ul = document.getElementById("admin");
   li = ul.getElementsByTagName("li");
 
   // Loop through all list items, and hide those who don't match the search query
@@ -293,6 +295,8 @@ function filterSelection(c) {
     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
   }
 }
+
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -314,10 +318,10 @@ function showSlides(n) {
     slides[i].style.display = "none";  
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].className.replace(" activedot", "");
   }
   slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  dots[slideIndex-1].className += " activedot";
 }
 function w3AddClass(element, name) {
   var i, arr1, arr2;
@@ -342,7 +346,7 @@ function w3RemoveClass(element, name) {
 
 
 // Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myCategoryList");
+var btnContainer = document.getElementById("admin");
 var btns = btnContainer.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function(){
@@ -378,18 +382,41 @@ $("#image").on("change", function() {
     }
 });
 
-function change(a){ 
-  var css=document.getElementById("css"); 
-  var switchcss;
-  if (a==0) 
-    css.setAttribute("href","light.css"); 
-    switchcss = 1;
-  if (a==1) 
-    css.setAttribute("href","night.css"); 
+function selected(x) {
+  x.classList.toggle("cat-active");
 }
 
 function toogle(x) {
   x.classList.toggle("fa-toggle-on");
 }
+
+
+const bowTieArr = [
+  {
+    "title": "Moño rojo",
+    "price": "4000",
+    "categories": ["hombre","moderno"]
+  },
+  {
+    "title": "Moño yo no se",
+    "price": "8000",
+    "categories": ["mujer","moderno"]
+  },
+]
+
+const container = document.querySelector('#container');
+
+function BowTieComponent(bowTie){
+  return `
+    <div class="box">
+      <h1 class="text-xl">${bowTie.title}</h1>
+      <p class="bg-green-800 rounded text-white p-2">${bowTie.price}</p>
+    </div>
+  `
+}
+const bowTieHTML = bowTieArr.map( bowTie => BowTieComponent(bowTie)).join('');
+container.innerHTML = bowTieHTML
+
+
 </script>
 </html>
