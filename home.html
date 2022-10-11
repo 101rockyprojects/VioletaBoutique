@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Violeta Boutique</title>
+  <script src="app.js" defer></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|McLaren|Syncopate:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
@@ -144,103 +147,21 @@
         <span class="dot" onclick="currentSlide(2)"></span> 
         <span class="dot" onclick="currentSlide(3)"></span> 
       </div>
-    <center>ACCESORIOS PARA TODOS</center>
+    <center>ACCESORIOS PARA <span id="filterTag" class="bg-accent">TODOS</span> </center>
     <!--span class="notfound">No se encontraron resultados</span>-->
     <ul class = "myCategoryList">
-      <li><a href="#todos" onclick="filterSelection('all')">Todos</a></li>
-      <li><a href="#masvendidos">Más vendidos</a></li>
-      <li><a href="#infantil" onclick="selected(this),filterSelection('infantil')">Infantiles</a></li>
-      <li><a href="#mujer" onclick="filterSelection('mujer')">Mujer</a></li>
-      <li><a href="#hombre" onclick="filterSelection('hombre')">Hombre</a></li>
-      <li><a href="#eventos">Para Eventos</a></li>
-      <li><a href="#vestidos">Para Vestidos</a></li>
-      <li><a href="#vestidos">Mascotas</a></li>
+      <li><a class="btn_ctg" data-filter="" href="#todos" onclick="filterSelection('all')">Todos</a></li>
+      <!-- <li><a class="btn_ctg" data-filter="" href="#masvendidos">Más vendidos</a></li> -->
+      <li><a class="btn_ctg" href="#infantil" onclick="selected(this),filterSelection('infantil')">Infantiles</a></li>
+      <li><a class="btn_ctg" href="#mujer" onclick="filterSelection('mujer')">Mujer</a></li>
+      <li><a class="btn_ctg" href="#hombre" onclick="filterSelection('hombre')">Hombre</a></li>
+      <li><a class="btn_ctg" href="#eventos">Para Eventos</a></li>
+      <li><a class="btn_ctg" href="#vestidos">Para Vestidos</a></li>
+      <li><a class="btn_ctg" href="#vestidos">Mascotas</a></li>
     </ul>
     <!-- Portfolio Gallery Grid -->
-    <div id="container" class="row container flex flex-wrap gap-4"">
-      <div class="column hombre">
-        <div class="accesorio" onclick="document.getElementById('id02').style.display='block'"></i>
-          <img src="moñoh.jpg" alt="Hombre">
-          <label>Hombre</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-      <div class="column hombre">
-        <div class="accesorio">
-        <img src="moñoh2.jpg" alt="Hombre">
-          <label>Hombre</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
+    <div id="container" class="bowContainer row container flex flex-wrap gap-4">
       
-      <div class="column infantil">
-        <div class="accesorio">
-          <img src="moño2.png" alt="Infantil">
-          <label>Infantil</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-      <div class="column mujer">
-        <div class="accesorio">
-        <img src="moñom.jpg" alt="Mujer">
-          <label>Mujer</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-      <div class="column mujer">
-        <div class="accesorio">
-        <img src="moñom2.jpg" alt="Mujer" >
-          <label>Mujer</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-
-      <div class="column mujer">
-        <div class="accesorio">
-          <img src="moñom3.jpg" alt="Mujer">
-          <label>Mujer</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-      <div class="column infantil">
-        <div class="accesorio">
-        <img src="moño3.jpg" alt="Infantil" >
-          <label>Infantil</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-      <div class="column hombre">
-        <div class="accesorio">
-        <img src="moñoh3.jpg" alt="Hombre">
-          <label>Hombre</label>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-      <div id="id02" class="modal">
-        <form class="modal-content2 animate" action="/action_page.php" method="post">
-          <div class="addcontainer"> 
-            <div class="visual"> 
-              <img class="principal" src="moñoh.jpg" alt="Hombre">
-              <img class="second" src="moñoh.jpg" alt="Hombre">
-              <img class="third" src="moñoh.jpg" alt="Hombre">
-              <br><br><br>
-              </div>
-              <ul class="card-action-buttons">
-                <li class="share"><i class="fas fa-share-alt"></i></a></li>
-                <li class="fav"><i onclick="myFavs(this)" class="fas fa-heart"></i></a></li>
-                <li class="car"><i class="fas fa-shopping-cart"></i></a></li>
-              </ul>
-              <p class="desctitle">Marcelo</p>
-              <p class="desctext">Agachate y conocelo</p>
-              <div class="chips">
-                <div style="width: 95%; margin: auto;">
-                    <div class="chip">Hombre</div>
-                    <div class="chip">Para Eventos</div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
     <!-- END GRID -->
     </div>
 
@@ -250,6 +171,8 @@
 
     <p> Redes sociales </p><a class="social-item" target="_blank"><i class="icon-share icons"></i></a><a class="social-item" target="_blank"><i class="icon-social-facebook icons"></i></a><a class="social-item"  target="_blank"><i class="icon-social-instagram icons"></i></a>
   </footer>-->
+  <dialog id="modal" class="modalBow">
+  </dialog>
 </body>
 <script>
   function myFavs(x) {
@@ -374,13 +297,13 @@ var account = document.getElementById('account');
 function closeForm() {
   modal.style.display = "none";
 }
-$("#image").on("change", function() {
-    if ($("#image")[0].files.length > 3) {
-        alert("You can select only 3 images");
-    } else {
-        $("#imageUploadForm").submit();
-    }
-});
+// $("#image").on("change", function() {
+//     if ($("#image")[0].files.length > 3) {
+//         alert("You can select only 3 images");
+//     } else {
+//         $("#imageUploadForm").submit();
+//     }
+// });
 
 function selected(x) {
   x.classList.toggle("cat-active");
@@ -390,32 +313,6 @@ function toogle(x) {
   x.classList.toggle("fa-toggle-on");
 }
 
-
-const bowTieArr = [
-  {
-    "title": "Moño rojo",
-    "price": "4000",
-    "categories": ["hombre","moderno"]
-  },
-  {
-    "title": "Moño yo no se",
-    "price": "8000",
-    "categories": ["mujer","moderno"]
-  },
-]
-
-const container = document.querySelector('#container');
-
-function BowTieComponent(bowTie){
-  return `
-    <div class="box">
-      <h1 class="text-xl">${bowTie.title}</h1>
-      <p class="bg-green-800 rounded text-white p-2">${bowTie.price}</p>
-    </div>
-  `
-}
-const bowTieHTML = bowTieArr.map( bowTie => BowTieComponent(bowTie)).join('');
-container.innerHTML = bowTieHTML
 
 
 </script>

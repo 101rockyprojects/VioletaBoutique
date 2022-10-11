@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Moño rojo",
+    "price": "4000",
+    "categories": ["hombre","moderno"]
+  },
+  {
+    "title": "Moño yo no se",
+    "price": "8000",
+    "categories": ["mujer","moderno"]
+  },
+  {}
+]
+

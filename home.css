@@ -803,3 +803,38 @@ ul.card-action-buttons li i {
   from {transform: scale(0)} 
   to {transform: scale(1)}
 }
+
+
+.bowContainer{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.modalBow::backdrop{
+  background-color: hsla(276, 91%, 13%, 0.453);
+}
+
+.bg-accent{
+  padding: 3px;
+  background-color: orange;
+  border-radius: 10px;
+}
+
+.not-found{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.not-found h2{
+  max-width: 10em;
+  border: solid 1px gray;
+}
+
+.bow{
+  max-height: 21.5rem;
+}
