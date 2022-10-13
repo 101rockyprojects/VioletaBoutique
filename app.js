@@ -1,71 +1,113 @@
-const modalBow = document.querySelector('#modal')
+const modalBow = document.querySelector('#moño')
 const viewBow =  document.querySelector('#container')
 const bows = [
   {
-    title: "Hombre",
-    imgURl: './img/moños/moñoh.jpg',
+    title: "Rosa",
+    imgURL: './img/moños/moño.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Infantiles',
     id: 1
   },
   {
-    title: "Hombre",
-    imgURl: './img/moños/moñoh.jpg',
+    title: "Rosa",
+    imgURL: './img/moños/moño2.png',
     description: "Lorem Lorem Lorem",
-    category: 'infantiles',
+    category: 'Infantiles',
     id: 2
   },
   {
-    title: "Hombre",
-    imgURl: './img/moños/moñoh.jpg',
+    title: "Rosa",
+    imgURL: './img/moños/moño3.jpg',
     description: "Lorem Lorem Lorem",
-    category: 'mujer',
+    category: 'Infantiles',
     id: 3
   },
   {
-    title: "Hombre",
-    imgURl: './img/moños/moñoh.jpg',
+    title: "Azul",
+    imgURL: './img/moños/moñoh.jpg',
     description: "Lorem Lorem Lorem",
+    category: 'Mujer',
     id: 4
   },
   {
-    title: "Hombre",
-    imgURl: './img/moños/moñoh.jpg',
+    title: "Gris-Azul",
+    imgURL: './img/moños/moñoh2.jpg',
     description: "Lorem Lorem Lorem",
+    category: 'Hombre',
     id: 5
   },
   {
-    title: "Hombre",
-    imgURl: './img/moños/moñoh.jpg',
+    title: "Azul",
+    imgURL: './img/moños/moñoh3.jpg',
     description: "Lorem Lorem Lorem",
+    category: 'Hombre',
     id: 6
+  },
+  {
+    title: "Verde",
+    imgURL: './img/moños/moñom.jpg',
+    description: "Lorem Lorem Lorem",
+    category: 'Mujer',
+    id: 7
+  },
+  {
+    title: "Morado",
+    imgURL: './img/moños/moñom2.jpg',
+    description: "Lorem Lorem Lorem",
+    category: 'Mujer',
+    id: 8
+  },
+  {
+    title: "Amarillo",
+    imgURL: './img/moños/moñom3.jpg',
+    description: "Lorem Lorem Lorem",
+    category: 'Mujer',
+    id: 9
   }
 ]
 //filter
 
 function componentBow(bow){
-  const {imgURl, title, description, id} = bow
+  const {imgURL, title, description, id, category} = bow
   return `
-  <div id="${id}" class="bow accesorio">
-    <img src="${imgURl}" alt="Hombre">
-      <label>${title}</label>
-    <p>${description}</p>
-  </div>
+    <div id="${id}" class="column bow accesorio">
+      <img src="${imgURL}" alt="${category}">
+        <label>${title}</label>
+      <p>${description}</p>
+    </div>
   `
 }
 
 function modalContentBowComponent(bow){
   return `
-    <h2>${bow.title}</h2>
-    <button id="modal__exit">Exit</button>
+    <div id="id02">
+    <a id="modal__exit" class="closebtn">×</a>
+      <div> 
+        <h2 class="title">${bow.title}</h2>
+        <ul class="card-action-buttons">
+          <li class="fav"><i onclick="myFavs(this)" class="fas fa-heart"></i></a></li>
+          <li class="car"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+        <img class="principal" src="${bow.imgURL}" alt="${bow.title}">
+          <br><br><br>
+          <p class="desctext">${bow.description}</p>
+          <div class="chips">
+            <div style="width: 95%; margin: auto;">
+                <div class="chip">${bow.title}</div>
+                <div class="chip">${bow.category}</div>
+        </div>
+      </div>
+    </div>
   `
 }
 
 function displayNotFound(){
   viewBow.innerHTML = `
-    <div class="not-found">
-      <h2>no se ha encontrado moños en esa categoria</h2>
-    </div>
+  <div class="not-found">
+    <p>Lo sentimos, aún tenemos moños en esa categoría...</p>
+    <br><br>
+    <span class="not-foundlogin">!!! Sé el primero en crearlo !!!</span><i class="fa fa-plus addbtn" onclick="document.getElementById('id01').style.display='block'"></i>
+  </div>
   `
 }
 
