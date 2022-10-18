@@ -6,6 +6,7 @@ const bows = [
     imgURL: './img/moños/moño.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Infantiles',
+    price:'1200',
     id: 1
   },
   {
@@ -13,6 +14,7 @@ const bows = [
     imgURL: './img/moños/moño2.png',
     description: "Lorem Lorem Lorem",
     category: 'Infantiles',
+    price:'1800',
     id: 2
   },
   {
@@ -20,6 +22,7 @@ const bows = [
     imgURL: './img/moños/moño3.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Infantiles',
+    price:'800',
     id: 3
   },
   {
@@ -27,13 +30,15 @@ const bows = [
     imgURL: './img/moños/moñoh.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Mujer',
+    price:'1400',
     id: 4
   },
   {
-    title: "Gris-Azul",
+    title: "Gris",
     imgURL: './img/moños/moñoh2.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Hombre',
+    price:'1000',
     id: 5
   },
   {
@@ -41,6 +46,7 @@ const bows = [
     imgURL: './img/moños/moñoh3.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Hombre',
+    price:'1200',
     id: 6
   },
   {
@@ -48,6 +54,7 @@ const bows = [
     imgURL: './img/moños/moñom.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Mujer',
+    price:'2000',
     id: 7
   },
   {
@@ -55,6 +62,7 @@ const bows = [
     imgURL: './img/moños/moñom2.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Mujer',
+    price:'1700',
     id: 8
   },
   {
@@ -62,19 +70,23 @@ const bows = [
     imgURL: './img/moños/moñom3.jpg',
     description: "Lorem Lorem Lorem",
     category: 'Mujer',
+    price:'1500',
     id: 9
   }
 ]
 //filter
 
 function componentBow(bow){
-  const {imgURL, title, description, id, category} = bow
+  const {imgURL, title, description, id, category, price} = bow
   return `
-    <div id="${id}" class="column bow accesorio">
+   <div class="bow column accesorio">
+    <div class="badge"><i class="fa fa-trash-can"></i></div>
+    <div id="${id}">
       <img src="${imgURL}" alt="${category}">
-        <label>${title}</label>
-      <p>${description}</p>
+        <label>$${price}</label>
+      <p>${title}</p>
     </div>
+   </div>
   `
 }
 
@@ -85,15 +97,14 @@ function modalContentBowComponent(bow){
       <div> 
         <h2 class="title">${bow.title}</h2>
         <ul class="card-action-buttons">
-          <li class="fav"><i onclick="myFavs(this)" class="fas fa-heart"></i></a></li>
-          <li class="car"><i class="fas fa-shopping-cart"></i></a></li>
+          <li class="fav"><i onclick="myFavs(this)" class="fas fa-heart"></i></li>
+          <li class="car"><i class="fas fa-shopping-cart"></i></li>
         </ul>
-        <img class="principal" src="${bow.imgURL}" alt="${bow.title}">
+        <img class="principal" src="${bow.imgURL}" alt="${bow.price}">
           <br><br><br>
-          <p class="desctext">${bow.description}</p>
+          <p class="desctext">Tanto estilo a solo $${bow.price}</p>
           <div class="chips">
             <div style="width: 95%; margin: auto;">
-                <div class="chip">${bow.title}</div>
                 <div class="chip">${bow.category}</div>
         </div>
       </div>
@@ -105,10 +116,10 @@ function displayNotFound(){
   viewBow.innerHTML = `
   <div class="not-found">
     <p>Lo sentimos, aún tenemos moños en esa categoría...</p>
-    <br><br>
-    <span class="not-foundlogin">!!! Sé el primero en crearlo !!!</span><i class="fa fa-plus addbtn" onclick="document.getElementById('id01').style.display='block'"></i>
   </div>
   `
+  //   <br><br>
+  //   <span class="not-foundlogin">!!! Sé el primero en crearlo !!!</span><i class="fa fa-plus addbtn" onclick="document.getElementById('account').style.display='block'"></i>
 }
 
 function displayBows(bowsArr){
@@ -137,4 +148,26 @@ document.addEventListener('click', (event)=>{
     const filteredBows = filterValue === 'Todos' ? bows : bows.filter((bow)=> bow.category === filterValue)
     filteredBows.length !== 0 ? displayBows(filteredBows) : displayNotFound();
   }
+  if(target.closest('.badge')){
+    const selectedBow = target.closest('.bow')
+    const mybow = bows.filter(bow => Number(bow.id) !== Number(selectedBow.id));
+    console.log(mybow);
+  }
 })
+
+function addMoño() {
+  let moño = formCreate();
+  bows.push(moño);
+}
+
+function formCreate(){
+  document.querySelector('.formcreate')
+    .addEventListener('submit', e => {
+      e.preventDefault()
+      const data = Object.fromEntries(
+        new FormData(e.target)
+      )
+      alert(JSON.stringify(data))
+    })
+  return data;
+  }

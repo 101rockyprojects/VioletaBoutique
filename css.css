@@ -1,0 +1,1264 @@
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+
+}
+
+html {
+  --background: #e7bde6;
+  --primary: #9b37df;
+  --black: #2e2e2e;
+  --white: #f2f2f2;
+  --hover:#4f0066;
+  --question: #216bf3;
+  transition: 0.6s;
+}
+
+.darkmode{
+  --background: #8622c2;
+  --primary: #f380b9;
+  --white: #2e2e2e;
+  --black: #f2f2f2;
+  --hover:#df1f7f;
+  --question: #e3f036;
+  transition: 1s;
+}
+
+body {
+  font-family: "Mclaren", sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  padding: 1rem;
+  background-color: var(--background);
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: var(--primary);
+  border-radius: 1rem;
+}
+
+.topnav a,
+.searchbtn {
+  float: left;
+  display: block;
+  padding: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  font-size:1.6vw;
+}
+
+
+.topnav a {
+  margin-right: 1rem;
+  cursor:default;
+}
+
+.topnav .navbtn {
+  font-size: 2vw;
+  margin: 0.8rem 1.2rem auto 0rem;
+}
+
+.topnav i {
+  border-radius: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.topnav .icon {
+  display: none;
+  float: inline-start;
+}
+
+.topnav img {
+  width: 4vw;
+  height: auto;
+  float: left;
+  margin: 0vw 0.2vw  0;
+}
+
+.searchbtn:hover {
+  cursor: pointer;
+  transform: rotate(0deg);
+}
+
+.mySlides {
+  display: none
+}
+
+.slider_img {
+  vertical-align: middle;
+  width: 100%;
+  max-height: 37vw;
+  border-radius: 0.4rem;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1500px;
+  position: relative;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: var(--hover);
+}
+
+/* Caption text */
+.slider_text {
+  color: var(--white);
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: var(--white);
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: var(--white);
+  border-radius: 50%;
+  display: inline-block;
+  transition: 0.6s ease;
+}
+
+.activedot {
+  background-color: var(--primary);
+}
+
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .2
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.footer{
+  background-color: var(--hover);
+  color: var(--white);
+  box-shadow: 0 0 0 100vmax var(--hover);
+  clip-path: inset(0 -100vmax);
+  padding: 4vmax 3vmax 3vmax;
+  margin-top: 2vmax;
+  margin-bottom:-3vmax;
+  height: 13vmax;
+}
+.footer h2 {
+  font-size: 2vmax;
+  color: var(--background);
+  font-weight: 600;
+}
+
+.xd{
+  margin-left:80%;
+  color: var(--question);
+  font-size: 1.4vmax;
+  text-decoration: underline;
+}
+
+/* On smaller screens, decrease text size */
+
+@media screen and (max-width: 520px) {
+  .modal-content {
+    min-width: 300px;
+    /* Could be more or less, depending on screen size */
+    height: 100%;
+    border-radius: 1rem;
+  }
+  
+  .accountcontainer h2 {
+    font-size: 1vw;
+  }
+
+  h2 {
+    font-size: 0.7rem;
+  }
+
+
+  .accountcontainer {
+    margin-right: -8px;
+    min-width: 90%;
+    padding: 6px;
+    height:90%;
+  }
+
+  .accountcontainer h2{
+    font-size: 5vw;
+  }
+  .accountcontainer label {
+    font-size: 3vw;
+  }
+
+  .accesorio img {
+    min-height: 23vw;
+    max-height: 23vw;
+  }
+
+  .topnav .navbtn {
+    font-size: 0.6rem;
+    padding: 0.5rem;
+    margin: 0.3rem 0rem auto 0rem;
+  }
+
+  .topnav a {
+    padding: 0.6rem 0.3rem;
+    font-size: 2vw;
+  }
+  .topnav img {
+    margin: 0.5vw 0 0 -2vw;
+    width:6vw;
+    height:6vw;
+  }
+
+  .searchbtn {
+    font-size: 0.6rem;
+    padding: 0.75rem 0.4rem 0.8rem 0.6rem
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+    border-radius: 1rem;
+    padding-left: auto;
+    margin-right: 0rem;
+  }
+
+  .topnav a.icon:hover {
+    float: right;
+    display: block;
+    margin-right: 0rem;
+  }
+
+  .slideshow-container {
+    max-width: 500px;
+    height: auto;
+  }
+
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
+
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .column {
+    min-width: 40%;
+    margin: 0 auto 0 auto;
+  }
+
+  .column label{
+    font-size: 2.8vw;
+  }
+
+  .column p{
+    font-size:2.5vw;
+    margin-left: 2vw;
+  }
+
+  
+  .sidenav ul li a {
+    font-size: 0.3rem;
+  }
+
+  .slider_img {
+    max-height:40vw;
+    min-height:40vw
+  }
+  
+  .visual {
+    max-height: 69vw;
+  }
+
+  .visual .principal {
+    margin: 0 1vw 0 1vw;
+    min-width: 40vw;
+    min-height: 35vw;
+  }
+
+}
+
+@media screen and (min-width: 521px) and (max-width: 700px) {
+  .modal-content {
+    min-width: 350px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  label {
+    font-size: 1.1rem;
+  }
+
+  .accountcontainer {
+    margin-right: -8px;
+    min-width: 90%;
+    padding: 6px;
+    height:90%;
+  }
+  
+  .accountcontainer h2{
+    font-size: 4vw;
+  }
+  .accountcontainer label {
+    font-size: 2.5vw;
+  }
+
+  .accesorio img {
+    min-height: 23vw;
+    max-height: 23vw;
+  }
+
+  .topnav .navbtn {
+    font-size: 0.9rem;
+    margin: 0rem;
+    margin: 1.1rem 0.4rem 0rem 0rem;
+  }
+
+  .topnav a {
+    font-size: 2.2vw;
+    margin: 1.1rem 0.7rem 0rem;
+    padding: 0rem;
+  }
+  .topnav img {
+    margin: 0.8vw 0 0 -2vw;
+    width:6vw;
+    height:6vw;
+  }
+  .searchbtn {
+    font-size: 0.9rem;
+    margin: 1.1rem 0.8rem;
+    padding: 0rem;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+    border-radius: 1rem;
+    padding-left: auto;
+    margin-right: 0rem;
+  }
+
+  .topnav a.icon:hover {
+    float: right;
+    display: block;
+    margin-right: 0rem;
+  }
+
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
+
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .sidenav {
+    width: 90%;
+  }
+
+  .column {
+    min-width: 40%;
+    margin: 0 auto 0 auto;
+  }
+
+  .column label{
+    font-size:2.8vw;
+  }
+
+  .column p{
+    font-size:2.5vw;
+    margin-left: 3vw;
+  }
+
+  .sidenav ul li a {
+    font-size: 0.6rem;
+  }
+
+  .addbtn {
+    margin-top: -2.25vw;
+  }  
+  
+  .slider_img {
+    max-height: 33.5vw;
+  }
+  .visual {
+    max-height: 63vw;
+  }
+
+  .visual .principal {
+    margin: 0 1vw 0 1vw;
+    min-width: 40vw;
+    min-height: 35vw;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  .modal-content {
+    min-width: 400px;
+  }
+  .bg-img {
+    background-image: url("img/loginbg.jpg");
+  }
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  label {
+    font-size: 1.4rem;
+  }
+  .accountcontainer {
+    margin-right: -8px;
+    min-width: 50%;
+    padding: 6px;
+    height:90%;
+  }
+  .accountcontainer h2{
+    font-size: 2.8vw;
+  }
+  .accountcontainer label {
+    font-size: 2vw;
+  }
+  .accesorio img {
+    min-height: 23vw;
+    max-height: 23vw;
+  }
+
+  .topnav .navbtn {
+    font-size: 1.5rem;
+    margin: 0rem;
+    margin: 0.8rem 1rem 0rem 0rem;
+  }
+
+  .topnav a {
+    font-size: 2.2vw;
+    margin: 0.9rem 0.7rem 0rem;
+    padding: 0rem;
+  }
+
+  .topnav img {
+    margin: 0.3vw 0 0 -1vw;
+    width:6vw;
+    height:6vw;
+  }
+
+  .searchbtn {
+    font-size: 1rem;
+    margin: 1.1rem 1rem;
+    padding: 0rem;
+  }
+
+  .topnav a:hover {
+    border-bottom: 0.1rem dashed var(--white);
+    color: var(--white);
+    padding: 0.7rem;
+  }
+
+  .column {
+    min-width: 31.45%;
+  }
+
+  .column label{
+    font-size:2.8vw;
+  }
+
+  .column p{
+    font-size:2.5vw;
+    margin-left: 2vw;
+  }
+
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
+
+  .dot {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .sidenav ul li a {
+    font-size: 0.8rem;
+  }
+
+  .slider_img {
+    max-height: 34vw;
+  }
+  .visual {
+    max-height: 65vw;
+  }
+  .visual .principal {
+    margin: 0 1vw 0 1vw;
+    min-width: 40vw;
+    min-height: 35vw;
+  }
+}
+
+.searchbtn {
+  cursor: pointer;
+}
+
+.searchbtn:hover {
+  cursor: pointer;
+
+  /* animation: lens 2.5s;
+  animation-iteration-count: infinite; */
+}
+
+/* @keyframes lens {
+  20% {
+    transform: rotate(-90deg);
+    font-size: 0.9rem;
+  }
+
+  40% {
+    transform: rotate(35deg);
+    font-size: 1.2rem;
+  }
+
+  100% {
+    transform: rotate(0deg)
+  }
+} */
+
+.navbtn {
+  float: right;
+  font-size: 1.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: var(--white);
+}
+
+.navbtn {
+  float: right;
+  font-size: 2rem;
+  margin: 0.5rem;
+  color: var(--white);
+}
+
+.navbtn:hover,
+.searchbtn:hover {
+  color: var(--hover);
+}
+
+.sideinput {
+  margin-bottom: 1rem;
+  font-size: 0rem;
+  border: none;
+  width: 0px;
+  background-color: transparent;
+  font-family: "Mclaren", sans-serif;
+  color: #b940f1;
+  caret-color: var(--question);
+}
+
+.buscar input {
+  height: 50%;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 3rem;
+  color: var(--black);
+  transition: all 0.6s ease;
+  padding-left: 1rem;
+  width: 70%;
+  caret-color: var(--hover);
+}
+
+.navbtn {
+  width: 1.8rem;
+  height: 1.8rem;
+  background: var(--primary);
+  text-align: center;
+  color: var(--white);
+  font-size: small;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.accesorio img {
+  width: 100%;
+  border-radius: 1rem;
+  min-height: 23vw;
+}
+
+.btn {
+  background: var(--primary);
+  text-align: center;
+  color: var(--white);
+  cursor: pointer;
+
+}
+
+
+.sidenav {
+  font-family: "Mclaren", sans-serif;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  background-color: var(--white);
+  overflow-x: hidden;
+  padding-top: 0.4rem;
+  font-size: 28px;
+  /* Increased text to enable scrolling */
+}
+
+.sidenav ul li {
+  display: flexbox;
+  width:100%;
+  height: fit-content;
+}
+
+.sidenav ul li a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--black);
+  transition: 0.3s;
+  display:flex;
+}
+
+.active {
+  background-color: var(--background);
+  color: var(--primary);
+}
+
+.sidenav ul li a:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.myCategoryList {
+  display: flex;
+  justify-content: center;
+}
+
+.myCategoryList li a {
+  padding: 0.5vw 1vw;
+  text-decoration: none;
+  font-size: 2vw;
+  color: var(--black);
+  transition: 0.3s;
+  float: left;
+  background-color: var(--white);
+  margin: 2.5vw 0.4vw 0 0.4vw;
+}
+
+.myCategoryList li a:hover {
+  transition: 0.3s;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.myCategoryList li a:focus {
+  transition: 0.5s;
+  border-radius: 0.4rem;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.myCategoryList li i {
+  color: var(--white);
+  transform: rotate(180deg);
+  font-size: 11vw;
+  margin-top: -1vw;
+  margin-left: -1vw;
+}
+.myCategoryList li i:hover {
+  color: var(--primary);
+}
+
+.closebtn {
+  position: absolute;
+  text-decoration: none;
+  font-size: 5vmax;
+  color: var(--primary);
+  margin-top: -1.9vmax;
+  right: 1vmax;
+}
+
+.closebtn:hover {
+  color: var(--background);
+}
+
+.main {
+  max-width: 95%;
+  margin: auto;
+}
+
+hr {
+  height: 4px;
+  background-color: var(--primary);
+}
+
+h1 {
+  font-size: 60px;
+  word-break: break-all;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.addcontainer label,.accountcontainer label{
+  font-size: 1rem;
+}
+
+
+/* Add padding BETWEEN each column */
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  width:24%;
+}
+.column p{
+  font-size: 2vw;
+  margin-left: 1vw;
+  color:var(--white);
+}
+.column label{
+  font-size: 1.7vw;
+  font-weight: 600;
+  float: right;
+  color:var(--primary);
+}
+
+
+/* Content */
+.accesorio {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 1rem;
+}
+
+.accesorio:hover {
+  background-color: var(--hover);
+  color: var(--white);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.6s;
+  padding: 9px;
+  box-shadow: 5px 3px 5px #372b38;
+}
+
+center {
+  color: var(--black);
+  margin: 1rem;
+  font-size: 4vw;
+  font-weight: 600;
+}
+
+.addbtn {
+  float:right;
+  color: var(--primary);
+  padding: auto 0 auto 0;
+  cursor:pointer;
+}
+
+.trash:hover {
+  animation: shake 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.update:hover {
+  animation: roundround 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes roundround {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+}
+
+.add:hover {
+  animation: spin 2.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(15deg);
+  }
+
+  10% {
+    transform: rotate(45deg);
+  }
+
+  30% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(-15deg)
+  }
+
+  60% {
+    transform: rotate(8deg)
+  }
+
+  90% {
+    transform: rotate(0deg)
+  }
+}
+
+.legend__item i {
+  display: inline-block;
+  width: 55px;
+  height: 45px;
+  font-family: Syncopate, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 2.3;
+  color: #e2dccc;
+  border: 6px solid #04110f;
+  border-width: 0 6px;
+}
+
+
+/*DIEGO*/
+
+
+.addcontainer {
+  padding: 1.5rem;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(94, 8, 79, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  width: 60%;
+  margin: auto auto 5% auto;
+  /* Could be more or less, depending on screen size */
+  height: auto;
+  border-radius: 1rem;
+}
+
+.add-top {
+  float: initial;
+  height: 7vh;
+  width: 100%;
+  background-color: var(--primary);
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+
+.modal-content2 {
+  background-color: #1e1e1e;
+  margin: 0% auto 0% auto;
+  width: 30%;
+  /* Could be more or less, depending on screen size */
+  height: auto;
+  border-radius: 1rem;
+}
+
+.visual {
+  background-color: var(--hover);
+  /* Could be more or less, depending on screen size */
+  height: auto;
+  height: 75%;
+  border-radius: 1rem;
+  border: 0;
+  box-shadow: 7px 5px 7px var(--black);
+}
+
+.visual .principal {
+  margin: 0 1vw 0 1vw;
+  width: 22vmax;
+  height: 20vmax;
+  border-radius: 1rem;
+}
+
+.title {
+  color: var(--white);
+  font-size: 3vmax;
+  margin-left: 1vw;
+  margin-top: 0vw;
+}
+
+.desctext {
+  color: var(--white);
+  font-size: 1.5vmax;
+  margin-left: 1vmax;
+  margin-top: -2vmax;
+  margin-bottom: 0.5vmax;
+}
+
+ul.card-action-buttons {
+  margin: -4vmax 2.5vmax 1vw 0;
+  text-align: right;
+}
+
+ul.card-action-buttons li {
+  display: inline-block;
+  border-radius: 50%;
+  width: 3vmax;
+  height: 3vmax;
+  background-color: var(--primary);
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: var(--white);
+}
+
+ul.card-action-buttons li:hover {
+  background-color: var(--white);
+  color: var(--hover);
+}
+
+ul.card-action-buttons li i {
+  font-size: 1.5vmax;
+  margin-top: 0.65vmax;
+}
+
+
+.chips .chip {
+  display: inline-block;
+  border-radius: 2rem;
+  width: auto;
+  height: auto;
+  padding: 0.4rem 1rem;
+  background-color: var(--primary);
+  text-align: center;
+  margin-top: 1rem;
+  position:static;
+}
+
+.chip {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.fav,
+.car {
+  cursor: pointer;
+}
+
+.badge {
+  display: none;
+  width:fit-content;
+  background-color: transparent;
+  padding: 0.7vw 1vw;
+  border-radius: 50%;
+  margin-top: -0.5vw;
+  font-size: 1.5vw;
+  color: var(--white);
+  cursor:pointer;
+  opacity: 0.7;
+  float:right;
+}
+.badge:hover {
+  opacity: 1;
+  background-color: var(--question);
+  box-shadow: 3px 1px 3px #372b38;
+  transition: 0.3s;
+}
+
+.login,
+.signin {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}
+
+.signin:focus,
+.login:focus {
+  background-color: #ddd;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: var(--hover);
+  color: var(--white);
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  font-family: "Mclaren", sans-serif;
+}
+
+.btn:hover {
+  background-color: var(--question);
+}
+
+.accountcontainer {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  max-width: 45%;
+  height:90%;
+  padding: 16px;
+  background-color: var(--background);
+  border-radius: 1rem;
+}
+
+.accountcontainer label {
+  margin-left: 0;
+  color: var(--primary);
+}
+
+
+.question {
+  color: var(--question);
+  padding: 5px auto 0 auto;
+  cursor: pointer;
+}
+
+.question:hover {
+  text-decoration: underline;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("img/loginbg.jpg");
+  min-height: 400px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  position: absolute;
+}
+
+#back{
+  display:none;
+}
+
+/* The Close Button (x) */
+.close {
+  position: static;
+  float: right;
+  top: 0;
+  color: var(--white);
+  font-size: 3rem;
+  font-weight: 5px;
+  text-decoration: none;
+  margin: -0.5rem 1rem;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.addinput {
+  margin-left: 5px;
+  width: 95%;
+  caret-color: var(--hover);
+  background-color: transparent;
+  font-family: "Mclaren", sans-serif;
+  border-radius: 0.2rem;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 1s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0)
+  }
+
+  to {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+
+.row{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-height: 80vh;
+  margin-top:1rem;
+  margin-left:auto;
+  margin-right: auto;
+  align-items: flex-start;
+}
+
+.modalBow::backdrop{
+  background-color: rgba(94, 8, 79, 0.4);
+  transition: 0.5s;
+}
+
+.bg-accent{
+  padding: 3px;
+  border-radius: 10px;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+
+
+.not-found{
+  display:inline-block;
+  width:100%;
+}
+.not-found p{
+  font-size: 2vw;
+  margin-left: 22%;
+}
+.not-found i{
+  width: 3.6vw;
+  height: 3.6vw;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+.not-foundlogin {
+  color: var(--primary);
+  font-size: 3vw;
+  float:left;
+  margin-left: 25%;
+}
