@@ -4,7 +4,7 @@ let bows = [
   {
     title: "Rosa",
     imgURL: './img/moños/moño.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Infantiles',
     price:'1200',
     id: 1
@@ -12,7 +12,7 @@ let bows = [
   {
     title: "Rosa",
     imgURL: './img/moños/moño2.png',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Infantiles',
     price:'1800',
     id: 2
@@ -20,7 +20,7 @@ let bows = [
   {
     title: "Rosa",
     imgURL: './img/moños/moño3.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Infantiles',
     price:'800',
     id: 3
@@ -28,7 +28,7 @@ let bows = [
   {
     title: "Azul",
     imgURL: './img/moños/moñoh.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Mujer',
     price:'1400',
     id: 4
@@ -36,7 +36,7 @@ let bows = [
   {
     title: "Gris",
     imgURL: './img/moños/moñoh2.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Hombre',
     price:'1000',
     id: 5
@@ -44,7 +44,7 @@ let bows = [
   {
     title: "Azul",
     imgURL: './img/moños/moñoh3.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Hombre',
     price:'1200',
     id: 6
@@ -52,7 +52,7 @@ let bows = [
   {
     title: "Verde",
     imgURL: './img/moños/moñom.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Mujer',
     price:'2000',
     id: 7
@@ -60,7 +60,7 @@ let bows = [
   {
     title: "Morado",
     imgURL: './img/moños/moñom2.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Mujer',
     price:'1700',
     id: 8
@@ -68,7 +68,7 @@ let bows = [
   {
     title: "Amarillo",
     imgURL: './img/moños/moñom3.jpg',
-    description: "Lorem Lorem Lorem",
+     
     category: 'Mujer',
     price:'1500',
     id: 9
@@ -77,7 +77,7 @@ let bows = [
 //filter
 
 function componentBow(bow){
-  const {imgURL, title, description, id, category, price} = bow
+  const {imgURL, title, id, category, price} = bow
   const imgDefault = './img/moños/moño.jpg';
   return `
    <div id="${id}" class="bow column accesorio">
@@ -89,7 +89,6 @@ function componentBow(bow){
     </div>
    </div>
   `
-  return
 }
 
 function modalContentBowComponent(bow){
@@ -159,26 +158,31 @@ document.addEventListener('click', (event)=>{
   if(target.matches('#contact-submit')){
     const form = target.closest('#add-bow');
     const title = form.querySelector('#input-nombre');
-    const newBow = {title: title.value};
+    const precio = form.querySelector('#input-precio');
+    // const img = form.querySelector('#input-img');
+    // const categoria = document.getElementById('input-categoria');
+    // let categoria_text = categoria.options[categoria.seletedIndex].text;
+    const newBow = {title: title.value, price: precio.value};
     bows = [...bows, newBow];
-    displayBows(bows)
+    displayBows(bows);
   }
   
 })
 
-function addMoño() {
-  let moño = formCreate();
-  bows.push(moño);
-}
 
-function formCreate(){
-  document.querySelector('.formcreate')
-    .addEventListener('submit', e => {
-      e.preventDefault()
-      const data = Object.fromEntries(
-        new FormData(e.target)
-      )
-      alert(JSON.stringify(data))
-    })
-  return data;
-  }
+// function addMoño() {
+//   let moño = formCreate();
+//   bows.push(moño);
+// }
+
+// function formCreate(){
+//   document.querySelector('.formcreate')
+//     .addEventListener('submit', e => {
+//       e.preventDefault()
+//       const data = Object.fromEntries(
+//         new FormData(e.target)
+//       )
+//       alert(JSON.stringify(data))
+//     })
+//   return data;
+// }

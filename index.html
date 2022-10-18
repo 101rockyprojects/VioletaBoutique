@@ -71,25 +71,25 @@
       </ul>
     </div>
     <div id="id01" class="modal">
-      <form id="add-bow" class="modal-content animate" method="post">
+      <form id="add-bow" class="modal-content animate">
         <div class="add-top">
           <a href="javascript:void(0)" class="close" onclick="closeForm()">×</a>
         </div>
         <div class="addcontainer">
-          <form id="contact" class="formadd" method="post">
+          <form id="contact" class="formadd">
             <h2>Agregar Nuevo Modelo</h2>
             <hr>
             <label>Nombre:</label>
             <input id="input-nombre" class="addinput" placeholder=" Nombre" type="text" tabindex="1" required autofocus>
             <label>Precio:</label>
-            <input class="addinput" placeholder=" Precio" type="number" min="1000" step="100" tabindex="2" required>
-            <label>Unidades disponibles:</label>
-            <input class="addinput" placeholder=" Cantidad" type="number" tabindex="3" required>
+            <input id="input-precio" class="addinput" placeholder=" Precio" type="number" min="1000" step="100" tabindex="2" required>
+            <!-- <label>Unidades disponibles:</label>
+            <input class="addinput" placeholder=" Cantidad" type="number" tabindex="3" required> -->
             <label>Fotos:</label>
-            <input class="addinput imginput" name="image[]" id="image" type="file" placeholder=" Cargar archivos" multiple
-              accept="image/*" required>
+            <input id="input-img" class="addinput imginput" name="image[]" id="image" type="file" placeholder=" Cargar archivos" multiple
+              accept="image/*">
             <label>Categoría del artículo:</label>
-            <select class="addinput" name="select">
+            <select id="input-categoria" class="addinput" name="select">
               <option value="ninguno">Categoría Principal...</option>
               <option value="mujer">Mujer</option>
               <option value="hombre">Hombre</option>
@@ -99,8 +99,7 @@
               <option value="mascotas">Mascotas</option>
             </select>
             
-            <button class="btn" name="submit" type="submit" id="contact-submit"
-              data-submit="...Sending">Entregar</button>
+            <button class="btn" id="contact-submit" onclick="closeForm()">Añadir moño</button>
 
           </form>
         </div>
