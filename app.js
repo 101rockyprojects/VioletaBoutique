@@ -1,6 +1,6 @@
 const modalBow = document.querySelector('#moño')
 const viewBow =  document.querySelector('#container')
-const bows = [
+let bows = [
   {
     title: "Rosa",
     imgURL: './img/moños/moño.jpg',
@@ -78,19 +78,22 @@ const bows = [
 
 function componentBow(bow){
   const {imgURL, title, description, id, category, price} = bow
+  const imgDefault = './img/moños/moño.jpg';
   return `
-   <div class="bow column accesorio">
+   <div id="${id}" class="bow column accesorio">
     <div class="badge"><i class="fa fa-trash-can"></i></div>
     <div id="${id}">
-      <img src="${imgURL}" alt="${category}">
+      <img src="${bow.imgURL || imgDefault }">
         <label>$${price}</label>
       <p>${title}</p>
     </div>
    </div>
   `
+  return
 }
 
 function modalContentBowComponent(bow){
+  const imgDefault = './img/moños/moño.jpg';
   return `
     <div id="id02">
     <a id="modal__exit" class="closebtn">×</a>
@@ -100,7 +103,7 @@ function modalContentBowComponent(bow){
           <li class="fav"><i onclick="myFavs(this)" class="fas fa-heart"></i></li>
           <li class="car"><i class="fas fa-shopping-cart"></i></li>
         </ul>
-        <img class="principal" src="${bow.imgURL}" alt="${bow.price}">
+        <img class="principal" src="${bow.imgURL || imgDefault}" alt="${bow.price}">
           <br><br><br>
           <p class="desctext">Tanto estilo a solo $${bow.price}</p>
           <div class="chips">
@@ -131,7 +134,12 @@ displayBows(bows);
 
 document.addEventListener('click', (event)=>{
   const target = event.target
-  if(target.closest('.bow')){  
+  if(target.closest('.badge')){
+    const selectedBow = target.closest('.bow')
+    bows = bows.filter(bow => Number(bow.id) !== Number(selectedBow.id));
+    displayBows(bows);
+  }
+  else if(target.closest('.bow')){  
     const selectedBow = target.closest('.bow')
     const myBow = bows.find(bow => Number(bow.id) === Number(selectedBow.id))
     const bowHTML = modalContentBowComponent(myBow);
@@ -139,7 +147,7 @@ document.addEventListener('click', (event)=>{
     modalBow.showModal();
   }
   if(target.closest('#modal__exit')){
-    modalBow.close();
+    modalBow.close();inputNombre
   }
   if(target.closest('.btn_ctg')){
     const btn = target.closest('.btn_ctg')
@@ -148,11 +156,14 @@ document.addEventListener('click', (event)=>{
     const filteredBows = filterValue === 'Todos' ? bows : bows.filter((bow)=> bow.category === filterValue)
     filteredBows.length !== 0 ? displayBows(filteredBows) : displayNotFound();
   }
-  if(target.closest('.badge')){
-    const selectedBow = target.closest('.bow')
-    const mybow = bows.filter(bow => Number(bow.id) !== Number(selectedBow.id));
-    console.log(mybow);
+  if(target.matches('#contact-submit')){
+    const form = target.closest('#add-bow');
+    const title = form.querySelector('#input-nombre');
+    const newBow = {title: title.value};
+    bows = [...bows, newBow];
+    displayBows(bows)
   }
+  
 })
 
 function addMoño() {
