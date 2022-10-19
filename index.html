@@ -29,7 +29,7 @@
   </div>
   <div id="account" class="modal">
     <div id="front">
-      <form class="modal-content animate bg-img formcreate" method="post">
+      <form class="modal-content animate bg-img formcreate">
         <div class="accountcontainer">
           <h2>Crea una cuenta <i class="fas fa-sign-in"></i></h2>
           <label for="email">Correo</label>
@@ -67,7 +67,6 @@
       <ul id="admin">
         <li><i class="fa fa-plus addbtn add" onclick="document.getElementById('id01').style.display='block'"></i><a href="#" onclick="document.getElementById('id01').style.display='block'">Agregar Moño</a></li>
         <li><i class="fa fa-trash-alt addbtn trash" onclick="deleteShow()"></i><a href="#" onclick="deleteShow()">Eliminar Moño</a></li>
-        <li><i class="fa fa-arrows-rotate addbtn update" onclick="displayBows()"></i><a href="#" onclick="displayBows()">Actualizar</a></li>
       </ul>
     </div>
     <div id="id01" class="modal">
@@ -91,15 +90,15 @@
             <label>Categoría del artículo:</label>
             <select id="input-categoria" class="addinput" name="select">
               <option value="ninguno">Categoría Principal...</option>
-              <option value="mujer">Mujer</option>
-              <option value="hombre">Hombre</option>
-              <option value="infantil">Infantil</option>
-              <option value="eventos">Eventos</option>
-              <option value="vestidos">Vestidos</option>
-              <option value="mascotas">Mascotas</option>
+              <option value="Mujer">Mujer</option>
+              <option value="Hombre">Hombre</option>
+              <option value="Infantil">Infantil</option>
+              <option value="Eventos">Eventos</option>
+              <option value="Vestidos">Vestidos</option>
+              <option value="Mascotas">Mascotas</option>
             </select>
             
-            <button class="btn" id="contact-submit" onclick="closeForm()">Añadir moño</button>
+            <button type="button" class="btn" id="contact-submit" onclick="closeForm()">Añadir moño</button>
 
           </form>
         </div>
