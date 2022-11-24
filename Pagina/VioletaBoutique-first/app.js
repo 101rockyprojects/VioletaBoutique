@@ -90,8 +90,6 @@ function modalContentBowComponent(bow){
       <div> 
         <h2 class="title">${bow.title}</h2>
         <ul class="card-action-buttons">
-          <li class="fav"><i onclick="myFavs(this)" class="fas fa-heart"></i></li>
-          <li class="car"><i class="fas fa-shopping-cart"></i></li>
         </ul>
         <img class="principal" src="${bow.imgURL || imgDefault}" alt="${bow.price}">
           <br><br><br>

@@ -23,7 +23,6 @@
       <img class="butterfly" src="img/logoicon.png" alt="Logo">
       <a href="#home">Violeta Boutique</a>
       <i class="fa fa-circle-user navbtn" onclick="document.getElementById('account').style.display='block'"></i>
-      <i class="fa fa-shopping-cart navbtn"></i>
       <i onclick="toogle(this),changeMode()" class="fa fa-toggle-off navbtn"></i>
     </div>
   </div>
