@@ -6,5 +6,5 @@ The development didn't kick off until we clarified guidelines, user stories, use
 Screenshots:<br>
 Website:<br> ![Website](/Pagina/img/Screenshots1.png) <br>
 Dark mode:<br> ![Website](/Pagina/img/Screenshots2.png) <br>
-Filter categories:<br> ![Website](/Pagina/img/Screenshots3.png) <br>
-Dark mode filter:<br> ![Website](/Pagina/img/Screenshots4.png) <br>
+Filter categories:<br> ![Website](/Pagina/img/Screenshots4.png) <br>
+Dark mode filter:<br> ![Website](/Pagina/img/Screenshots3.png) <br>
